@@ -7,7 +7,7 @@
 1.  **Standby Mode:** The bookshelf is in "Secure State." All **8 slots are glowing RED** using the big Industrial Signal Lights. The **15.6" Monitor** shows the PUP Library Logo and an empty transaction table.
 2.  **The Scan:** The borrower taps their **Custom QR ID** at the **ESP32 Scanner Station**.
 3.  **The Wireless Handshake:** The ESP32-C3 sends a wireless JSON packet to the **Raspberry Pi 4** server.
-4.  **The Surprise (Dashboard):** On the **15.6" Monitor**, a new row instantly slides into the top of the table with the borrower’s basic info. 
+4.  **The Surprise (Dashboard):** On the **15.6" Monitor or Laptop**, a new row instantly slides into the top of the table with the borrower’s basic info. 
 5.  **The CV Reveal:** The librarian (or you) clicks the borrower's name. A **Full-Screen CV Profile** pops up, displaying the borrower's photo (pulled from the RPi4 folder), age, course, and student number.
 
 ---
@@ -50,7 +50,7 @@
     *   `1. CALCULUS`
     *   `2. PHYSICS 1`
     *   `3. (Ready to Proceed)`
-5.  **Dashboard Update:** The **15.6" Monitor** switches to "Return Mode" and highlights these books in the database.
+5.  **Dashboard Update:** The **15.6" Monitor or Laptop** switches to "Return Mode" and highlights these books in the database.
 
 ---
 
