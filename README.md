@@ -98,7 +98,7 @@ You now have a complete, professional, and safe-to-demo **Industrial IoT System.
 
 ---
 
-### **1. The "Web-Server" Architecture**
+#**1. The "Web-Server" Architecture**
 
 *   **The Raspberry Pi 4 (The Server):** 
     *   It sits inside the bookshelf.
