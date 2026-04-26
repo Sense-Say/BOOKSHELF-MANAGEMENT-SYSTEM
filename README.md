@@ -95,3 +95,80 @@ You now have a complete, professional, and safe-to-demo **Industrial IoT System.
 
 1.  **Node A (ESP32-C3):** Handles the identity/book scanning and Librarian alerts.
 2.  **Node B (RPi4):** Handles the 15.6" Dashboard, the 8 IR Sensors, the 16 Industrial Lights, the 1.3" OLED, and the SMS.
+
+---
+
+### **1. The "Web-Server" Architecture**
+
+*   **The Raspberry Pi 4 (The Server):** 
+    *   It sits inside the bookshelf.
+    *   It runs the Python code and the **Web Server (Flask or Node-RED).**
+    *   It handles all physical wiring: 8 IR sensors, 16 Industrial Lights, the 1.3" OLED, and the Buzzer.
+*   **The Laptop (The Client):**
+    *   Connected to the same Wi-Fi as the RPi4.
+    *   You simply open a browser (Chrome/Edge) and type in the RPi4's IP address (e.g., `http://192.168.1.15:5000`).
+    *   The **15.6" Monitor** is plugged into your **Laptop's HDMI port.**
+*   **The ESP32-C3 (The Edge Node):**
+    *   Still at the counter, wirelessly sending QR data to the RPi4.
+
+---
+
+### **2. The "Amazing" Presentation Setup**
+
+This setup will look even more high-tech because it is **completely wireless** from the viewer's perspective.
+
+1.  **The Counter:** Place the **ESP32 Scanner** and its **0.96" OLED.**
+2.  **The Librarian Desk:** Place your **Laptop** connected to the **15.6" Monitor.** The monitor shows the "PUP Smart Library Dashboard."
+3.  **The Bookshelf:** Place the shelf across the room. Inside it is the **Raspberry Pi 4**, the **Big Industrial Lights**, and the **1.3" OLED.**
+
+---
+
+### **3. The Updated Logic Flow (Headless RPi4)**
+
+**Step 1: The Scan**
+*   You scan the ID at the ESP32.
+*   The ESP32 sends the data over Wi-Fi to the RPi4 server.
+
+**Step 2: The Server Processing**
+*   The RPi4 receives the data. It updates the database.
+*   **Physical Action:** The RPi4 instantly turns the shelf lights from **RED to GREEN.**
+*   **Local Action:** The RPi4 updates the **1.3" OLED** on the shelf: `"WELCOME EDWARD"`.
+
+**Step 3: The Laptop Visualization (The Surprise)**
+*   Because the Laptop is viewing the RPi4's web-page, the **15.6" Monitor** (connected to the laptop) **automatically refreshes** or uses "WebSockets" to slide your **CV Profile** into view.
+*   **Surprise Factor:** You aren't touching the laptop. It reacts to the scan performed across the room!
+
+**Step 4: The Physical Proof**
+*   You pull a book. The RPi4 detects the IR sensor change.
+*   The **Laptop Dashboard** instantly shows: `"STATUS: BOOK 4 TAKEN."`
+
+---
+
+### **4. Why your Professor will prefer this:**
+
+1.  **Distributed Computing:** You are showing that you know how to build a network where different devices have different roles (Data Capture, Data Processing, Data Visualization).
+2.  **Web Technologies:** Using a browser-based dashboard proves you understand **HTML/CSS/JavaScript** and how to host a local web server on Linux (RPi4).
+3.  **Scalability:** You can tell the professor: *"Because the dashboard is web-based, 10 different librarians could open the dashboard on 10 different laptops at the same time."*
+
+---
+
+### **5. Technical Requirements for this Setup:**
+
+*   **Static IP:** You will set a "Static IP" for your Raspberry Pi so its address never changes.
+*   **Web Framework:**
+    *   **Node-RED (Recommended):** The easiest way to build a high-end web dashboard that auto-updates.
+    *   **Flask (Python):** If you prefer writing pure Python code.
+*   **No HDMI on RPi4:** You won't need a Micro-HDMI cable for the Pi anymore! You only need a standard HDMI cable to connect your Laptop to the 15.6" Monitor.
+
+---
+
+### **Final System Hardware Recap (RPi4 Node):**
+
+*   **RPi4** (Server - No monitor needed).
+*   **MCP23017 Expander** (to control the 16 Industrial Lights).
+*   **1.3" OLED** (Local shelf instructions).
+*   **8x E18-D80NK Sensors** (Slot detection).
+*   **Industrial Buzzer** (Error alarms).
+*   **12V Power Adapter** (For the lights and buzzer).
+*   **5V Relay Modules** (To bridge the Pi and the 12V lights).
+
