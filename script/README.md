@@ -1,7 +1,7 @@
 ### **[SLIDE 1] Title Slide (HAILO Enterprise)**
 *   **Speaker:** Alex
 *   **Estimated Time:** 0:45 [1]
-*   **Script:** "Good day po sa ating panel. Kami ang HAILO Enterprise. Ako po si Alex, ang Project Manager. Kasama ko po ngayon ang aking mga co-founders: si Diane, ang aming Lead Researcher; si Edward, aming Data Analyst; si Ian, aming Hardware Specialist; at si Cyrenz, ang aming Product Designer. Binuo namin ang company na ito na may malinaw na mission: ang tulungan ang mga blind teachers na ma-overcome ang classroom navigation challenges gamit ang isang wearable assistive device, para maging mas safe at independent ang pagtuturo nila." [1]
+*   **Script:** "Good day po sa ating lahat. Kami ang HAILO Enterprise. Ako po si Alex, ang Project Manager. Kasama ko po ngayon ang aking mga co-founders: si Diane, ang aming Lead Researcher; si Edward, aming Data Analyst; si Ian, aming Hardware Specialist; at si Cyrenz, ang aming Product Designer. Binuo namin ang company na ito na may malinaw na mission: ang tulungan ang mga blind teachers na ma-overcome ang classroom navigation challenges gamit ang isang wearable assistive device, para maging mas safe at independent ang pagtuturo nila." [1]
 
 ### **[SLIDE 2] Problem**
 *   **Speaker:** Diane
