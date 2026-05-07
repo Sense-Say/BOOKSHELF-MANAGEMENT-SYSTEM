@@ -47,7 +47,7 @@ Pagdating naman sa biggest limitation ng current assistive methods nila, lumabas
 ### **[SLIDE 7] Solution**
 *   **Speaker:** Diane
 *   **Estimated Time:** 0:30 *(Hinati mula sa 1:00 total para sa solution at viability)* [6]
-*   **Script:** "Dito na papasok ang solution natin: ang BlindSight. Ang BlindSight ay isang lightweight wearable na gumagamit ng sensors at camera-based object recognition para magbigay ng real-time guidance. Specifically designed ito para i-boost ang confidence at autonomy nila sa loob ng classroom." [6]
+*   **Script:** "And dito na papasok ang aming proposed solution: introducing BlindSight. Ang BlindSight ay isang lightweight wearable na gumagamit ng sensors at camera-based object recognition para magbigay ng real-time guidance. Specifically designed ito para i-boost ang confidence at autonomy nila sa loob ng classroom." [6]
 
 ### **[SLIDE 8] Why This Business Will Work**
 *   **Speaker:** Diane
