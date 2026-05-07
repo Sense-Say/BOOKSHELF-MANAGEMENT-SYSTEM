@@ -24,12 +24,14 @@
     Nung pinitch namin ang concept namin, sobrang ganda ng naging validation. 100% ng users ay willing gamitin yung device, at lahat sila gusto ng AI na magiging 'extra eyes' nila. 67% of users ang nagsabi na real-time safety ang pinaka-hinahanap nila, kaya binigyan nila kami ng high trust rating na 4.0 to 5.0 out of 5.
     Sa product feedback naman, sabi ng users dapat daw highly accurate at mabilis mag-respond yung device. Para sa hardware, 50% ang mas gusto ng audio plus vibration feedback, at dapat daw lightweight at school-friendly. Ang bottom line: gusto ng users yung concept at nagtitiwala sila dito, pero alam namin na price at affordability pa rin ang magiging main driver para maging successful tayo sa market."
 
-**Part 4: Customer Persona**
+**Part 4: Customer Persona (Expanded Background)**
 *   **Speaker:** Alex
-*   **Slide Focus:** Customer Persona Slide 
-*   **Estimated Time:** 1:00
+*   **Slide Focus:** Customer Persona Slide
+*   **Estimated Time:** 1:45 
 *   **Script:** 
-    "So, para kanino ba talaga ang device na ito? Meet our primary customer persona: si Mrs. Lourdes, isang dedicated at visually impaired na teacher. Ang main goal niya ay makapagturo nang independent at ma-maintain yung strong connection niya sa mga students niya. Ang problema, yung mismong workspace niya ang nagbibigay sa kanya ng stress. Ang classroom kasi ay puno ng nagbabagong obstacles—mga nakakalat na bags, gumagalaw na upuan, at mga silent cues ng students. Dahil hindi ito nade-detect ng white cane, nagiging source of anxiety ang classroom para kay Mrs. Lourdes, kaya na-fi-feel niyang disconnected siya sa klase na sobrang mahal niya."
+    "So, sino ba talaga ang pinaka-makikinabang dito? Gusto ko pong ipakilala sa inyo ang aming primary customer persona: si Mrs. Lourdes. Siya ay isang deeply dedicated na teacher na maraming taon nang nagtuturo. Para kay Mrs. Lourdes, hindi lang trabaho ang pagtuturo—ito ang passion at buhay niya [6, 7]. 
+    Pero recently, nakakaranas siya ng paglabo ng paningin o deteriorating eyesight [7]. Dahil dito, ang classroom na dati niyang comfort zone ay unti-unting nagiging isang overwhelmed reality [7]. Isipin niyo po, ang classroom ay isang napaka-dynamic at magulong environment. Araw-araw, paiba-iba ang pwesto ng mga upuan, may mga nakakalat na backpacks sa sahig, at higit sa lahat, andiyan yung mga non-verbal signals ng mga bata [7]. 
+    Dahil sa condition niya at sa limitation ng ordinaryong tungkod, hindi niya nakikita yung mga batang nagtataas ng kamay o yung silent cues na kailangan ng tulong [7, 8]. Ang pinakamasakit na pain point para kay Mrs. Lourdes ay hindi lang yung physical hazard o yung pagkakatisod niya sa mga gamit [9], kundi yung emosyonal na epekto—yung pakiramdam na unti-unti na siyang nadi-disconnect sa mga estudyanteng sobrang mahal niya [8]. Gustong-gusto niyang maging independent at bumalik sa dating sigla ng pagtuturo, pero pinipigilan siya ng workspace niya."
 
 
 **Part 5: Empathy Map / Value Proposition Canvas**
