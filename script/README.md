@@ -25,7 +25,7 @@ Pagdating naman sa biggest limitation ng current assistive methods nila, lumabas
 ### **[SLIDE 5] Product Feedback & Insights**
 *   **Speaker:** Cyrenz
 *   **Estimated Time:** 0:30 [3]
-*   **Script:** "Sa product feedback naman, sabi ng users dapat daw highly accurate at mabilis mag-respond yung device. Para sa hardware, 50% ang mas gusto ng audio plus vibration feedback, at dapat daw lightweight at school-friendly. Ang bottom line: gusto ng users yung concept at nagtitiwala sila dito, pero alam namin na price at affordability pa rin ang magiging main driver para maging successful ag devicr sa market." [3]
+*   **Script:** "Sa product feedback naman, sabi ng users dapat daw highly accurate at mabilis mag-respond yung device. Para sa hardware, 50% ang mas gusto ng audio plus vibration feedback, at dapat daw lightweight at school-friendly. Ang bottom line: gusto ng users yung concept at nagtitiwala sila dito, pero alam namin na price at affordability pa rin ang magiging main driver para maging successful ang device sa market." [3]
 
 ### **[TRANSITION TO SLIDE 6] Customer Persona Background**
 *(Note: Ito ay verbal transition habang papunta sa susunod na slide).*
