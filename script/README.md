@@ -66,4 +66,9 @@
     **Sa Panel 5**, makikita natin siyang naglalakad. Gamit ang real-time audio at haptic feedback, ginagabayan siya ng device para makahanap ng safe path sa gitna ng magulong classroom. Nade-detect ng system yung mga nakakalat na bags sa sahig, kaya nawawala yung kaba niya at napapalitan ng relief.
     **Finally, sa Panel 6**, ang ating outcome. Nawala na ang mga visual barriers. Nakatayong may kumpiyansa si Mrs. Lourdes sa harap ng klase. Nabawi niya ang complete control sa classroom niya at ang kakayahang magturo nang maayos. Empowered siya, at pati na rin ang mga students niya."
 
+**Part 8: Positioning Statement & Conclusion**
+*   **Speaker:** Edward
+*   **Slide Focus:** Slides 10 & 11 (Positioning Statement & Logo)
+*   **Estimated Time:** 0:30
+
  
