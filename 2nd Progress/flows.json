@@ -1,0 +1,421 @@
+[
+    {
+        "id": "c7c7edfb187eb3c2",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cfcb7e2859c41557",
+        "type": "sqlite",
+        "z": "c7c7edfb187eb3c2",
+        "mydb": "54bceb60d97d610f",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "LibraryDB",
+        "x": 400,
+        "y": 320,
+        "wires": [
+            [
+                "39750c693fb27c3b",
+                "f0d4f4ef5cb85bbf"
+            ]
+        ]
+    },
+    {
+        "id": "30042d2d1aab8c29",
+        "type": "function",
+        "z": "c7c7edfb187eb3c2",
+        "name": "Fetch CV Data",
+        "func": "// This command saves your specific details into the SQL table\nmsg.topic = \"SELECT * FROM students;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c64abebd67c0cdc4",
+        "type": "ui_table",
+        "z": "c7c7edfb187eb3c2",
+        "group": "01b89c686f2072d6",
+        "name": "",
+        "order": 1,
+        "width": "16",
+        "height": "4",
+        "columns": [
+            {
+                "field": "time",
+                "title": "DATE / TIME\t",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "name",
+                "title": "STUDENT NAME\t",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "id",
+                "title": "STUDENT ID\t",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "status",
+                "title": "STATUS\t",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 1,
+        "cts": true,
+        "x": 750,
+        "y": 320,
+        "wires": [
+            [
+                "465db0d5da754808"
+            ]
+        ]
+    },
+    {
+        "id": "39750c693fb27c3b",
+        "type": "function",
+        "z": "c7c7edfb187eb3c2",
+        "name": "Log Stacker",
+        "func": "// 1. Check if the database actually found the student\nif (msg.payload && msg.payload.length > 0) {\n    var student = msg.payload[0]; // The first match found\n    var list = flow.get(\"libraryTable\") || [];\n\n    // 2. Format the time\n    var phTime = new Date().toLocaleTimeString('en-US');\n\n    // 3. Create the row\n    var newEntry = {\n        \"time\": phTime,\n        \"name\": student.full_name,\n        \"id\": student.student_no,\n        \"status\": \"BORROWED\"\n    };\n\n    // 4. Stacking Logic\n    list.unshift(newEntry);\n    if (list.length > 5) { list.pop(); }\n    flow.set(\"libraryTable\", list);\n\n    // 5. Send list to table\n    msg.payload = list;\n    return msg;\n}\nreturn null; // Ignore if name not found in SQL",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 320,
+        "wires": [
+            [
+                "c64abebd67c0cdc4"
+            ]
+        ]
+    },
+    {
+        "id": "f0d4f4ef5cb85bbf",
+        "type": "ui_template",
+        "z": "c7c7edfb187eb3c2",
+        "group": "674f291f745f124d",
+        "name": "CV TEMPLATE",
+        "order": 2,
+        "width": "16",
+        "height": "4",
+        "format": "<div ng-if=\"msg.payload[0].full_name\" style=\"background: white; border-radius: 12px; padding: 30px; display: flex; gap: 30px; align-items: flex-start; color: #333;\">\n    <div style=\"flex: 0 0 200px;\">\n        <!-- Dynamic Photo -->\n        <img src=\"/{{msg.payload[0].student_no}}.jpg\" style=\"width: 200px; height: 200px; border-radius: 10px; border: 4px solid #800000; object-fit: cover;\">\n    </div>\n    <div style=\"flex: 1;\">\n        <h1 style=\"color: #800000; margin: 0; font-size: 2.5em; font-weight: bold;\">{{msg.payload[0].full_name}}</h1>\n        <div style=\"margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 1.2em;\">\n            <p><strong>STUDENT NO:</strong> {{msg.payload[0].student_no}}</p>\n            <p><strong>COURSE:</strong> {{msg.payload[0].course}}</p>\n            <p><strong>AGE:</strong> {{msg.payload[0].age}}</p>\n            <p><strong>CONTACT:</strong> {{msg.payload[0].phone_number}}</p>\n        </div>\n    </div>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 640,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aea84acc07e34451",
+        "type": "ui_template",
+        "z": "c7c7edfb187eb3c2",
+        "group": "",
+        "name": "Global Theme",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    /* 1. FORCE THE BACKGROUND GRADIENT */\n    body,\n    md-content,\n    #v-app,\n    .nr-dashboard-container {\n        background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%) !important;\n        background-color: transparent !important;\n    }\n\n    /* 2. PUP MAROON HEADER */\n    md-toolbar {\n        background-color: #800000 !important;\n        border-bottom: 2px solid #FFD700;\n    }\n\n    /* 3. GLASSMORPHISM CARDS */\n    .nr-dashboard-template,\n    .nr-dashboard-table {\n        background: rgba(255, 255, 255, 0.05) !important;\n        backdrop-filter: blur(10px);\n        border: 1px solid rgba(255, 255, 255, 0.1) !important;\n        border-radius: 15px !important;\n        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important;\n    }\n\n    /* 4. MAKE TABLE ROWS CLICKABLE (Force Hand Cursor) */\n    .ui-table tbody tr {\n        cursor: pointer !important;\n        transition: background-color 0.3s;\n    }\n\n    .ui-table tbody tr:hover {\n        background-color: rgba(255, 215, 0, 0.2) !important;\n        /* Gold highlight */\n    }\n\n    /* Highlight the Student Name Column */\n    .ui-table tbody td:nth-child(2) {\n        color: #FFD700 !important;\n        font-weight: bold;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 100,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6b0e412c917b62a6",
+        "type": "mqtt in",
+        "z": "c7c7edfb187eb3c2",
+        "name": "",
+        "topic": "library/scan",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "f68451a2affa79d0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "0ccb75959e42d07f",
+                "9a46cba3421acca4"
+            ]
+        ]
+    },
+    {
+        "id": "465db0d5da754808",
+        "type": "function",
+        "z": "c7c7edfb187eb3c2",
+        "name": "Prepare SQL Fetch",
+        "func": "// 1. Ignore if it's the whole table updating\nif (Array.isArray(msg.payload)) { return null; }\n\n// 2. Extract the ID from the row we clicked\nvar studentID = msg.payload.id; \n\n// 3. Command SQL to find full details for this student\nmsg.topic = \"SELECT * FROM students WHERE student_no = '\" + studentID + \"';\";\nmsg.payload = []; // Clear payload to prevent SQL errors\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 240,
+        "wires": [
+            [
+                "cfcb7e2859c41557"
+            ]
+        ]
+    },
+    {
+        "id": "6819fd89a0700511",
+        "type": "inject",
+        "z": "c7c7edfb187eb3c2",
+        "name": "Inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "\"INSERT OR REPLACE INTO students (student_no, full_name, age, course, phone_number) VALUES ('2021-00021-SR-0', 'EDWARD A. DORONGON', 22, 'BTVTED', '0921-795-7260');\"",
+        "payload": "{     \"full_name\": \"EDWARD A. DORONGON\",     \"student_no\": \"2021-00021-SR-0\",     \"course\": \"BTVTED\",     \"age\": 22,     \"phone\": \"0921-795-7260\" }",
+        "payloadType": "json",
+        "x": 310,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6204bc3cd8f29b99",
+        "type": "inject",
+        "z": "c7c7edfb187eb3c2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "x": 790,
+        "y": 160,
+        "wires": [
+            [
+                "c64abebd67c0cdc4"
+            ]
+        ]
+    },
+    {
+        "id": "0ccb75959e42d07f",
+        "type": "debug",
+        "z": "c7c7edfb187eb3c2",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "9a46cba3421acca4",
+        "type": "function",
+        "z": "c7c7edfb187eb3c2",
+        "name": "Lookup by Name",
+        "func": "// Get the name string from ESP32\nvar scannedName = msg.payload.toString().trim();\n// Create the SQL search command\nmsg.topic = \"SELECT * FROM students WHERE full_name = '\" + scannedName + \"';\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 320,
+        "wires": [
+            [
+                "cfcb7e2859c41557"
+            ]
+        ]
+    },
+    {
+        "id": "69b501394d2be83a",
+        "type": "ui_spacer",
+        "z": "c7c7edfb187eb3c2",
+        "name": "spacer",
+        "group": "01b89c686f2072d6",
+        "order": 3,
+        "width": 7,
+        "height": 1
+    },
+    {
+        "id": "8724163d9f4c12ba",
+        "type": "ui_spacer",
+        "z": "c7c7edfb187eb3c2",
+        "name": "spacer",
+        "group": "01b89c686f2072d6",
+        "order": 4,
+        "width": 7,
+        "height": 1
+    },
+    {
+        "id": "9b25349b9ca61f0f",
+        "type": "ui_spacer",
+        "z": "c7c7edfb187eb3c2",
+        "name": "spacer",
+        "group": "01b89c686f2072d6",
+        "order": 5,
+        "width": 7,
+        "height": 1
+    },
+    {
+        "id": "3d91b88842cacf44",
+        "type": "ui_spacer",
+        "z": "c7c7edfb187eb3c2",
+        "name": "spacer",
+        "group": "01b89c686f2072d6",
+        "order": 6,
+        "width": 7,
+        "height": 1
+    },
+    {
+        "id": "54bceb60d97d610f",
+        "type": "sqlitedb",
+        "db": "/home/rpi/library.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "01b89c686f2072d6",
+        "type": "ui_group",
+        "name": "LOGS",
+        "tab": "688d172d28ac9af3",
+        "order": 1,
+        "disp": false,
+        "width": "16",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "674f291f745f124d",
+        "type": "ui_group",
+        "name": "PROFILE",
+        "tab": "688d172d28ac9af3",
+        "order": 2,
+        "disp": false,
+        "width": "16",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f68451a2affa79d0",
+        "type": "mqtt-broker",
+        "name": "Local Broker",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "688d172d28ac9af3",
+        "type": "ui_tab",
+        "name": "COMMAND CENTER",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "b2c36a1807c46578",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-node-sqlite": "2.0.1",
+            "node-red-node-ui-table": "0.4.5",
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
